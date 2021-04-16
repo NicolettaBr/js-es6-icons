@@ -123,11 +123,17 @@ $(document).ready(function(){
 
 	//invoco funzione
 	stampaIcone(icons, iconeContainer);
+
+
+	//Milestone2
+
+	//devo creare un nuovo array di oggetti icona che presentino anche la proprietà colore
+	const arrayColorato = 
+
+	iconeColorate(icons,colors);
 	
 
-	
-
-	
+	iconeTipo(icons);
 
 
 
@@ -166,10 +172,70 @@ $(document).ready(function(){
 	}
 
 
+	//Funzione icone colorate
+	//arrayOriginale --> array di oggetti
+	//arrayColori --> array di colori
+	//return --> un array di oggetti con anche la proprietà color
+
+	function iconeColorate (arrayOriginale, arrayColori){
+
+		const iconeType = iconeTipo(arrayOriginale);
+		console.log(iconeType);
+
+		//creo un nuovo array copia per non modificare l'originale
+		const arrayColorato = arrayOriginale.map((element)=>{
+			nuovoOggetto = {
+				...element
+			};
+			//console.log(nuovoOggetto);
+
+			//confronto gli array dei tipi con quello dei colori 
+			//assegno il colore in base all' indice uguale
+
+			//trovo indice degli elementi dell'array dei tipi
+			const iconeTipoIndice = iconeType.indexOf(nuovoOggetto.type);
+			//console.log(iconeTipoIndice);
+
+			if(iconeTipoIndice != -1){
+				nuovoOggetto.colore = arrayColori[iconeTipoIndice];
+			}
+
+			return nuovoOggetto;
+		
+		});
+
+		console.log(arrayColorato);
+		return arrayColorato;
+
+	}
 
 
+
+	//Funzione array tipi di icone
+	//creo un array che raggruppa i tipi di icone presenti nell' array originale
+	//arrayOriginale --> array di oggetti icone
+	//return --> array con i tipi di icona
+
+	function iconeTipo (arrayOriginale){
+		const typeArray = [];
+		//console.log('array dei tipi:', typeArray);
+
+		arrayOriginale.forEach((element)=>{
+			//console.log(element);
+
+			const elementType = element.type;
+			//console.log(elementType);
+
+			if(!typeArray.includes(elementType)){
+				typeArray.push(elementType);
+			}
+
+		});
+
+		return typeArray;
+		
+	}
 	
-
 
 
 
