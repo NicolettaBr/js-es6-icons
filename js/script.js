@@ -115,7 +115,57 @@ $(document).ready(function(){
 	// Milestone 3
 	// Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 	
+
 	//Milestone 1
+
+	//costante per individuare elemento html
+	const iconeContainer = $('#iconeContainer');
+
+	//invoco funzione
+	stampaIcone(icons, iconeContainer);
+	
+
+	
+
+	
+
+
+
+
+
+	//FUNZIONI//
+
+	//Funzione stampa icone
+	//creo una funzione che popoli un oggetto jQuery (container) con le icone
+	//arrayOriginale --> array di oggetti
+	//container --> un oggetto jQuary in cui stampare le icone
+
+	function stampaIcone (arrayOriginale, container){
+		//console.log(container);
+
+		//itero l' array con for each
+		arrayOriginale.forEach((element)=>{
+			//console.log(element);
+
+			//destrutturo gli elementi per ottenere i valori che mi servono per stampare
+			const {name, prefix, family} = element;
+			//console.log(name, prefix, family);
+
+			//template che riproduce html con proprietà degli oggetti
+			const iconeHTML = `
+				<div class="icon">
+					<i class="${family} ${prefix}${name} "></i>
+					<div>${name}</div>
+				</div> 
+			`;
+			//console.log(iconeHTML);
+
+			container.append(iconeHTML);
+
+		});
+	}
+
+
 
 
 	
