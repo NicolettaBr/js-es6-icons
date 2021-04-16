@@ -1,0 +1,49 @@
+/*RESET*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    height: 100%;
+}
+/*HEADER*/
+
+.container{
+    
+    width: 1200px;
+    height: 70px;
+    margin: auto;
+}
+
+.container img{
+    width: 200px;
+}
+
+/*MAIN*/
+
+.main-container{
+    background-color: lightgray;
+    width: 1200px;
+    margin: auto;
+}
+
+.icon-container{
+    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.icon{
+    background-color: white;
+    text-align: center;
+    width: calc( ( 100% / 5 ) - 5px );
+    padding: 20px 30px 20px 30px;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    
+}
