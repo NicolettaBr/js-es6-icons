@@ -122,17 +122,19 @@ $(document).ready(function(){
 	const iconeContainer = $('#iconeContainer');
 
 	//invoco funzione
-	stampaIcone(icons, iconeContainer);
+	//stampaIcone(icons, iconeContainer);
 
 
 	//Milestone2
 
 	//devo creare un nuovo array di oggetti icona che presentino anche la proprietà colore
-	const arrayColorato = 
+	const arrayColorato = iconeColorate(icons, colors);
+
+	stampaIcone(arrayColorato, iconeContainer);
+	
 
 	iconeColorate(icons,colors);
 	
-
 	iconeTipo(icons);
 
 
@@ -154,18 +156,17 @@ $(document).ready(function(){
 			//console.log(element);
 
 			//destrutturo gli elementi per ottenere i valori che mi servono per stampare
-			const {name, prefix, family} = element;
+			const {name, prefix, family, colore} = element;
 			//console.log(name, prefix, family);
 
 			//template che riproduce html con proprietà degli oggetti
 			const iconeHTML = `
 				<div class="icon">
-					<i class="${family} ${prefix}${name} "></i>
+					<i class="${family} ${prefix}${name}" style="color:${colore} "></i>
 					<div>${name}</div>
 				</div> 
 			`;
 			//console.log(iconeHTML);
-
 			container.append(iconeHTML);
 
 		});
@@ -180,7 +181,7 @@ $(document).ready(function(){
 	function iconeColorate (arrayOriginale, arrayColori){
 
 		const iconeType = iconeTipo(arrayOriginale);
-		console.log(iconeType);
+		//console.log(iconeType);
 
 		//creo un nuovo array copia per non modificare l'originale
 		const arrayColorato = arrayOriginale.map((element)=>{
@@ -204,7 +205,7 @@ $(document).ready(function(){
 		
 		});
 
-		console.log(arrayColorato);
+		//console.log(arrayColorato);
 		return arrayColorato;
 
 	}
